@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{{query}} - Магазин Geode</title>
+        <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{{url_for('static', filename='scrollbar/scrollbar.css')}}">
+        <script src=" {{url_for('static', filename='javascript/searchMods.js')}}"></script>
+        <script src="{{url_for('static', filename='javascript/fillInput.js')}}"></script>
+    </head>
+    <body style="overflow: auto;">
+        <div id="headermover">
+            <div class="modernuiheader">
+                <img src="{{url_for('static', filename='images/icon.png')}}" class="modernuiicon">
+                <h1 class="moderuititle">Магазин</h1>
+                <div class="modernuibuttons" onclick="window.location.replace(`{{url_for('mainpage')}}`)">
+                    <img src="{{url_for('static', filename='images/close.svg')}}" style="margin-top: 15px; margin-left: 15px;">
+                </div>
+            </div>
+        </div>
+        <div class="mainmodernview">
+            <div id="menu" class="menu" style="opacity: 1;">
+                <ul>
+                    <li><a href="/geodestore">Домашняя страница</a></li>
+                    <li><form action="/geodestore">
+                        <input class="searchbar" name="query" placeholder="Поиск модов">
+                    </form></li>
+                </ul>
+            </div>
+            <div id="nowthisisrealcontent" style="opacity: 1;">
+                <div class="searchheader">
+                    <button onclick="window.history.back()" class="backbutton"><img src="{{url_for('static', filename='images/goback.png')}}"></button>
+                    <h1 class="resultlabel">Результаты "{{query}}"</h1>
+                    <p class="thumbmoddownloads" id="results"></p>
+                </div>
+                <div id="modlist" class="modlist">
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

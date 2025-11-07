@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Магазин Geode</title>
+        <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+        <script src="{{url_for('static', filename='javascript/loadStore.js')}}"></script>
+        <script src="{{url_for('static', filename='javascript/getMods.js')}}"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{{url_for('static', filename='scrollbar/scrollbar.css')}}">
+    </head>
+    <body style="background-color: #019601; overflow: auto;">
+        <div id="headermover">
+            <div class="modernuiheader">
+                <img src="{{url_for('static', filename='images/icon.png')}}" class="modernuiicon">
+                <h1 class="moderuititle">Магазин</h1>
+                <div class="modernuibuttons" onclick="window.location.replace(`{{url_for('mainpage')}}`)">
+                    <img src="{{url_for('static', filename='images/close.svg')}}" style="margin-top: 15px; margin-left: 15px;">
+                </div>
+            </div>
+        </div>
+        <div class="mainmodernview">
+            <img src="{{url_for('static', filename='images/icon.png')}}" id="centerlogo">
+            <p id="nocon">Нет подключения к интернету</p>
+            <div id="menu" class="menu">
+                <ul>
+                    <li><a href="/geodestore">Домашняя страница</a></li>
+                    <li><form action="/geodestore">
+                        <input class="searchbar" name="query" placeholder="Поиск модов">
+                    </form></li>
+                </ul>
+            </div>
+            <div id="nowthisisrealcontent">
+                <div id="modlist" class="modlist">
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
