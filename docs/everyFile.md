@@ -11,6 +11,8 @@
 
 `startmenu()`: Возвращает страницу меню пуск, не принимает никаких аргументов. (`startmenu.html`)
 
+`getrianews()`: Возвращает пропарщенную RSS ленту с [ria.ru](https://ria.ru), не принимает никаких аргументов.
+
 `geodeshop()`: Имеет два исхода: без параметров и с параметрами, не принимает никаких аргументов. (`geodestore.html` и `geodesearch.html`)\
 **Без параметров:**
 Возвращает страницу загрузки магазина (`geodestore.html`)
@@ -29,11 +31,25 @@
 
 `getmods()`: Возвращает ответ в виде JSON с индекса Geode, не принимает никаких аргументов, все параметры перенаправляются на индекс Geode.
 
+`rianews()`: Возвращает страницу новостей с [ria.ru](https://ria.ru), не принимает никаких аргументов. (`news.html`)
+
 `geodemod()`: Возвращает страницу с модов в магазине. (`geodemod.html`)
 
 #### `requirements.txt`
 
 Содержит необходимые библиотеки для запуска и развёртывания приложения.
+
+#### `modidvalidator.py`
+
+Файл для проверки mod_id.
+
+**Функции:**
+
+`is_valid()`: Проверят modid, возвращает True если всё хорошо, False если нет, принимает один аргумент `modid`.
+
+**Используется в:**
+
+`app.py`.
 
 ### Все файлы в директории `static`
 
@@ -43,7 +59,7 @@
 
 **Используется файлами:**
 
-`templates/geodemod.html`, `templates/geodesearch.html`, `templates/geodestore.html`, `templates/mainpage.html`, `templates/startmenu.html`.
+`templates/geodemod.html`, `templates/geodesearch.html`, `templates/geodestore.html`, `templates/mainpage.html`, `templates/startmenu.html`, `news.html`.
 
 ## Все файлы в директории `static/images`
 
@@ -147,17 +163,29 @@
 
 `geodemod.html`.
 
-#### `loadStore.js`
+#### `loadNews.js`
 
-Проверяет соединение через энд-поинт `/checkcon`, затем посылает событие `weGotInternet`, и при успешной загрузке модов прячем загрузку.
+Получает новости с [ria.ru](https://ria.ru) через энд-поинт `/getrianews`, который преобразует RSS в JSON, а JSON в удобный интерфейс.
 
 **Функции:**
 
-(GLOBAL) `loadFullSite()`: Проверяет соединение через энд-поинт `/checkcon`, затем посылает событие `weGotInternet`, и при успешной загрузке модов прячем загрузку, не принимает никаких аргументов.
+`loadnews()`: Получает новости с [ria.ru](https://ria.ru) через энд-поинт `/getrianews`, который преобразует RSS в JSON, а JSON в удобный интерфейс, не принимает никаких аргументов.
 
 **Используется в:**
 
-`geodestore.html`.
+`news.html`.
+
+#### `loadApp.js`
+
+Проверяет соединение через энд-поинт `/checkcon`, затем посылает событие `weGotInternet`, и при успешном получении чего либо прячем загрузку.
+
+**Функции:**
+
+(GLOBAL) `loadFullSite()`: Проверяет соединение через энд-поинт `/checkcon`, затем посылает событие `weGotInternet`, и при успешном получении чего либо прячем загрузку, не принимает никаких аргументов.
+
+**Используется в:**
+
+`geodestore.html`, `news.html`.
 
 #### `searchMods.js`
 

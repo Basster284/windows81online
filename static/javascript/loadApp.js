@@ -11,7 +11,7 @@ async function checkAvailabity() {
     const resp = await fetch('/checkcon');
     if(resp.ok){
         document.dispatchEvent(internetAvailable);
-        console.log("api available");
+        console.log("we got internet");
     }
     else{
         document.getElementById("nocon").style.opacity = 1;

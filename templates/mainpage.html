@@ -14,8 +14,11 @@
                 <button class="start-button" onclick="window.location.replace(`{{url_for('startmenu')}}`)"><img src="{{url_for('static', filename='images/starticon.png')}}"></button>
             </span>
             <span class="middle">
-                <div class="geodestore" onclick="window.location.replace(`{{url_for('geodeshop')}}`)">
-                    <img src="{{url_for('static', filename='images/icon.png')}}">
+                <div class="taskbaricon" onclick="window.location.replace(`{{url_for('geodeshop')}}`)">
+                    <img src="{{url_for('static', filename='images/storeicon.png')}}">
+                </div>
+                <div class="taskbaricon" onclick="window.location.replace(`{{url_for('rianews')}}`)">
+                    <img src="{{url_for('static', filename='images/newsicon.png')}}">
                 </div>
             </span>
             <span class="rightside">
