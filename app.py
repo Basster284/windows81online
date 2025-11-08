@@ -95,5 +95,3 @@ def rianews():
 @app.route("/geodestore/<modid>")
 def geodemod(modid):
     return render_template("geodemod.html")
-
-app.run(debug=True)
